@@ -1,0 +1,12 @@
+[package]
+name        = "biometric-payload"
+description = "Custom MAVLink dialect for downlink of identity-enriched tracks. Private overlay only."
+version.workspace = true
+edition.workspace = true
+license.workspace  = true
+authors.workspace  = true
+publish.workspace  = true
+
+[dependencies]
+track-id = { path = "../track-id" }
+serde    = { version = "1", features = ["derive"] }

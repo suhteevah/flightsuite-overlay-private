@@ -1,0 +1,28 @@
+[package]
+name        = "track-id"
+description = "Identity overlay for flightsuite tracks. Runs ArcFace / OSNet / GaitGraph2 / ECAPA-TDNN against detection events and emits identity-enriched tracks. Private overlay only."
+version.workspace = true
+edition.workspace = true
+license.workspace  = true
+authors.workspace  = true
+publish.workspace  = true
+
+[dependencies]
+# We DEPEND ON the public flightsuite as a read-only consumer of types.
+# Path is the local flightsuite checkout for now; switch to git rev pin
+# when this repo lives on its own.
+flight-vision     = { path = "../../../flightsuite/crates/flight-vision" }
+flight-types      = { path = "../../../flightsuite/crates/flight-types" }
+
+# Re-use the visionsystem desktop biometric stack — those modules are
+# already battle-tested against Matt's webcam. Once we cargo-deny clean
+# them, we can lift them into here directly.
+vs-perceive       = { path = "../../../visionsystem/crates/vs-perceive" }
+
+serde      = { version = "1", features = ["derive"] }
+serde_json = "1"
+anyhow     = "1"
+tract-onnx = { version = "0.21", default-features = false }
+image      = "0.25"
+tokio      = { version = "1", features = ["full"] }
+tracing    = "0.1"
