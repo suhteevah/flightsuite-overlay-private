@@ -67,6 +67,8 @@ crates as path/git deps (read-only) and adds enrichment layers.
 
 ---
 
+---
+
 ## Support This Project
 
 If you find this project useful, consider buying me a coffee! Your support helps me keep building and sharing open-source tools.
